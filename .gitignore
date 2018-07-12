@@ -1,0 +1,20 @@
+*.class
+*.iml
+#eclipse
+.settings/
+.project
+.classpath
+
+#idea
+.idea/
+.idea/workspace.xml
+*.iml
+
+# Package Files #
+*.war
+*.ear
+
+target
+.DS_Store
+*/logs/
+

@@ -1,0 +1,2 @@
+{"args":[],"argsMd5":"d41d8cd98f00b204e9800998ecf8427e","className":"java.lang.Object","method":"toString","result":"com.dang.note.cglib.UserMapper@74294adb","resultClass":"java.lang.String"}
+{"args":[3],"argsMd5":"eccbc87e4b5ce2fe28308fd9f2a7baf3","className":"com.dang.note.cglib.UserMapper","method":"getUserById","result":{"age":3,"id":3,"userName":"userName:3"},"resultClass":"com.dang.note.cglib.User"}

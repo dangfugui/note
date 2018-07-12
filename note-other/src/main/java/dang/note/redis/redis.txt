@@ -1,0 +1,51 @@
+	del key 	删除key
+	dump key 	序列化key
+	exists key 	是否存在key 1|0
+	expire key 60		设置key过期时间60s或者用时间戳
+	expireat key 1000	设置key过期时间1000毫秒
+	persist key 	移除给定key的过期时间，使得key永不过期
+	pttl key 		获取key的剩下的过期时间 毫秒为单位
+	ttl key 		获取key的剩下的过期时间 秒为单位
+	keys *		获取所有key *通配符  （ke*）
+	move key 1  	将key移动到数据库1   默认使用数据库0
+	select 1 		使用数据库1
+	randomkey 	随机返回一个key  当数据库为空时  返回nil
+	rename key newKey	修改key名称 如果存在newKey
+	会被覆盖
+	renamenx key newKey 修改key名称 如果存在newKey返回0
+	type key 	返回对应key存储的值的类型
+
++String
+	set key value v2 v3...		(maxLength=512MB)
+	get key
+	getset key newvalue		获取key的value并且内容改成newvalue
+	getrange key start end 获取对应string的子字符设
+	mset k1 v1 k2 v2 k3 v3 	设置多个string
+	mget k1 k2 k3		读取多个value
+
++hash
+	hset[nx] key value
+	hmset key value1 value2 value3... [number] (2^32-1)
+	hvals key
+	hgetall key
+	hdel key1 key2		删除多个哈希表字段
+
+
++list
+	lpush key value
+	lrange key 0 10(start,end)
+	lindex key index
+	linsert key before|after pivot value 	在列表头或尾添加
+	llen kye 			get list length
+	lpop key 	移出并获取列表的第一个元素
+
++set 
+	sadd key member
+	smembers key
++zset
+	zadd key score member
+	zrangebyscore key 0 1000
+
+
+
+//http://www.runoob.com/redis/redis-data-types.html

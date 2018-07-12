@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<singularity>
+    <crawler name="init">
+        <request target="paging">
+            <header>
+                <quark type="value">User-Agent:Mozilla/5.0 (Windows NT 6.1; WOW64; rv:49.0) Gecko/20100101
+                    Firefox/49.0
+                </quark>
+                <quark type="value">
+                    <quark type="value">Cookie:userid=</quark>
+                    <quark type="regex">(?<=userid=").+
+                    </quark>
+                </quark>
+            </header>
+            <url>
+                <quark type="value">http://list.suning.com/0-</quark>
+                <quark type="list">[ 20006,258004 ]</quark>
+                <quark type="value">-0.html</quark>
+            </url>
+        </request>
+    </crawler>
+</singularity>

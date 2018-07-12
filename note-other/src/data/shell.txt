@@ -1,0 +1,50 @@
+. outfile
+list=(0,1,2,3,4,5,6,7,8,9)
+list[10]=10
+echo "list[10]:" ${list[10]}
+length=${#list[@]}
+echo "length" ${length}
+
+
+
+
+
+#我是一个菜鸟
+echo "第一个参数是:$1"
+a=10
+b=20
+val=`expr $a + $b`
+echo $val
+if [ $a !=  $b ]
+then echo "a!=b"
+fi
+
+demoFun(){
+        echo "第一个函数参数为:  $*"
+}
+
+demoFun 1 2 3
+
+file="out.txt"
+
+$ echo "输出到文件" >>file.out
+echo "输入一个数"
+read aNum
+case $aNum in
+        1) echo "输入了1"
+        ;;
+        2) echo "输入了2"
+        ;;
+        *) echo "输入的不是1或2"
+        ;;
+esac
+
+
+
+
+
+
+
+
+
+echo 'end'

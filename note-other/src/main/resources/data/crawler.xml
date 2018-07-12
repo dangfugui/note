@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<singularity>
+    <crawler name="init">
+        <request target="paging">
+            <header>
+                <quark type="value">User-Agent:Mozilla/5.0 (Windows NT 6.1; WOW64; rv:49.0) Gecko/20100101
+                    Firefox/49.0
+                </quark>
+                <quark type="value">
+                    <quark type="value">Cookie:userid=</quark>
+                    <quark type="regex">(?<=userid=").+
+                    </quark>
+                </quark>
+            </header>
+            <url>
+                <quark type="value">http://list.suning.com/0-</quark>
+                <quark type="list">[ 20006,258004 ]</quark>
+                <quark type="value">-0.html</quark>
+            </url>
+        </request>
+    </crawler>
+
+    <crawler name="paging" proxy="proxy" save="dbname">
+        <request target="page">
+            <url>
+                <quark type="url">.+(?=\d{1,3}.html)</quark>
+                <quark type="page"><!--start,end,jump,max -->
+                    <quark type="value">0</quark>
+                    <quark type="regex">span.page-more</quark>
+                    <quark type="value">1</quark>
+                    <quark type="value">100</quark>
+                </quark>
+            </url>
+        </request>
+    </crawler>
+
+    <crawler name="page" proxy="proxy" save="dbname">
+        <request target="commodity">
+            <url>
+                <quark type="regex">p.sell-point a@@href</quark>
+            </url>
+        </request>
+    </crawler>
+
+    <crawler name="commodity" proxy="proxy" save="dbname">
+        <request target="detail"><!--review 评价总数-->
+            <url>
+                <quark type="value">http://review.suning.com/ajax/review_satisfy/general-</quark>
+                <quark type"jsoup">#curPartNumber@@value
+            </quark>
+            <quark type"value">-
+        </quark>
+        <quark type"regex">(?<=format=html5.url=http:..m.suning.com.product.)\d+
+    </quark>
+    <quark type"value">-----satisfy.htm?callback=satisfy:formatted
+</quark>
+        </url>
+        </request>
+
+<request target="detail"><!--review 评价 -->
+<url>
+    <quark type="value">http://review.suning.com/cmmdty_review/general-</quark>
+    <quark type"jsoup">#curPartNumber@@value
+</quark>
+<quark type"value">-0000000000-
+</quark>
+<quark type"page"><!--start end jump -->
+<quark type="value">1</quark>
+<quark type="value">20</quark>
+<quark type="value">1</quark>
+        </quark>
+<quark type"value">-total.htm</quark>
+        </url>
+        </request>
+
+<request target="strategy">    <!--review 价格-->
+<url>
+    <quark type="value">http://pas.suning.com/nspcsale_0_</quark>
+    <quark type"jsoup">#curPartNumber@@value
+</quark>
+<quark type"value">-
+</quark>
+<quark type"jsoup">#curPartNumber@@value</quark>
+<quark type"value">_</quark>
+<quark type="regex">(?<=format=html5.url=http:..m.suning.com.product.)\d+
+</quark>
+<quark type="value">_10_010_0100101_20089_1000000_9017_10106_Z001.html?callback=pcData</quark>
+        </url>
+        </request>
+        </crawler>
+
+<crawler name="strategy" proxy="proxy" save="dbname">
+<save></save>
+<request target="detail"><!--分期策略-->
+    <url>
+        <quark type="value">http://icps.suning.com/icps-web/getWaywardPriceInfo/</quark>
+        <quark type="regex">(?<=.partNumber.:.)\d+
+        </quark>
+        <quark type="value">_</quark>
+        <quark type="regex">(?<=\{.vendorCode.:.)\d+
+        </quark>
+        <quark type="value">_1_</quark>
+        <quark type="regex">(?<=netPrice...)\d+.\d+
+        </quark>
+        <quark type="value">__PDS_getWaywardPriceCallBack.vhtm</quark>
+    </url>
+</request>
+</crawler>
+        </singularity>
