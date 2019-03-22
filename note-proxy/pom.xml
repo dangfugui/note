@@ -12,6 +12,14 @@
     <artifactId>note-proxy</artifactId>
 
     <dependencies>
+
+
+        <dependency>
+            <groupId>com.dang.note</groupId>
+            <artifactId>note-utils</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/cglib/cglib -->
         <dependency>
             <groupId>cglib</groupId>
